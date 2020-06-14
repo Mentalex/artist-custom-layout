@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ArtistViewController.swift
 //  ArtistCustomLayout
 //
 //  Created by Alex Tapia on 14/06/20.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ArtistViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
   }
-
-
 }
-
