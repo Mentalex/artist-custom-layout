@@ -15,6 +15,7 @@
 		FA4AA4A32496D78000CB9962 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4A22496D78000CB9962 /* DataManager.swift */; };
 		FA4AA4A72496DF6B00CB9962 /* GridItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4A52496DF6B00CB9962 /* GridItemViewCell.swift */; };
 		FA4AA4A82496DF6B00CB9962 /* GridItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4AA4A62496DF6B00CB9962 /* GridItemViewCell.xib */; };
+		FA4AA4AC2496F02400CB9962 /* ArtistLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4AB2496F02400CB9962 /* ArtistLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FA4AA4A22496D78000CB9962 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		FA4AA4A52496DF6B00CB9962 /* GridItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemViewCell.swift; sourceTree = "<group>"; };
 		FA4AA4A62496DF6B00CB9962 /* GridItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridItemViewCell.xib; sourceTree = "<group>"; };
+		FA4AA4AB2496F02400CB9962 /* ArtistLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +101,27 @@
 		FA4AA4A42496DEBB00CB9962 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FA4AA4A92496EF7E00CB9962 /* Cells */,
+				FA4AA4AA2496EFBF00CB9962 /* Layouts */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FA4AA4A92496EF7E00CB9962 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 				FA4AA4A52496DF6B00CB9962 /* GridItemViewCell.swift */,
 				FA4AA4A62496DF6B00CB9962 /* GridItemViewCell.xib */,
 			);
-			path = Common;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FA4AA4AA2496EFBF00CB9962 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				FA4AA4AB2496F02400CB9962 /* ArtistLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +200,7 @@
 				FA4AA4A72496DF6B00CB9962 /* GridItemViewCell.swift in Sources */,
 				FA4AA4A32496D78000CB9962 /* DataManager.swift in Sources */,
 				FA4225402496D13B00CC9ED0 /* ArtistViewController.swift in Sources */,
+				FA4AA4AC2496F02400CB9962 /* ArtistLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

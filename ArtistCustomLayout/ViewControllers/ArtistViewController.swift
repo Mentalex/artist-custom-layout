@@ -13,9 +13,6 @@ class ArtistViewController: UIViewController {
   // MARK: - Outlets
   @IBOutlet weak var collectionView: UICollectionView!
   
-  // MARK: - Constants
-  private let spaceWidth: CGFloat = 8.0
-  
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,6 +27,10 @@ class ArtistViewController: UIViewController {
 
 // MARK: - CollectionView DataSource
 extension ArtistViewController: UICollectionViewDataSource {
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return DataManager.items.count
   }
@@ -40,22 +41,5 @@ extension ArtistViewController: UICollectionViewDataSource {
       ) as? GridItemViewCell
     cell?.backgroundColor = .darkGray
     return cell ?? UICollectionViewCell()
-  }
-}
-
-// MARK: - CollectionView DelegateFlowLayout
-extension ArtistViewController: UICollectionViewDelegateFlowLayout {
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return spaceWidth
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return spaceWidth
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let columns: CGFloat = 4
-    let width = (view.bounds.width - (columns * spaceWidth - spaceWidth)) / (columns)
-    return CGSize(width: width, height: width)
   }
 }
