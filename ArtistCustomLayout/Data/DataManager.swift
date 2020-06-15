@@ -11,7 +11,7 @@ import Foundation
 struct DataManager {
   
   static var sections: [Section] {
-    let songs = Section(items: Array(0...50))
+    let songs = Section(type: .list, items: Array(0...50))
     return [songs]
   }
 }

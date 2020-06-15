@@ -1,5 +1,5 @@
 //
-//  LayoutType.swift
+//  ArtistLayoutType.swift
 //  ArtistCustomLayout
 //
 //  Created by Alex Tapia on 15/06/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum LayoutType {
+enum ArtistLayoutType {
   case list
   case grid
   case carousel

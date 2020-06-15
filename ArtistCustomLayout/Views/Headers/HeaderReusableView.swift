@@ -11,6 +11,6 @@ import UIKit
 class HeaderReusableView: UICollectionReusableView {
 
   override func awakeFromNib() {
-      super.awakeFromNib()
+    super.awakeFromNib()
   }
 }

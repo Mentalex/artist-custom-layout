@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Section {
-  var layout: LayoutType = .grid
+struct Section: ArtistLayoutProtocol {
+  var type: ArtistLayoutType
   var header: String?
   var footer: String?
   var items: [Int]

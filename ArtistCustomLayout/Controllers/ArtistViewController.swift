@@ -54,3 +54,10 @@ extension ArtistViewController: UICollectionViewDataSource {
     return header
   }
 }
+
+// MARK: - ArtistLayout Delegate
+extension ArtistViewController: ArtistLayoutDelegate {
+  func collection(_ collectionView: UICollectionView, layoutType type: ArtistLayoutType, for section: Int) -> ArtistLayoutType {
+    return DataManager.sections[section].type
+  }
+}
