@@ -28,11 +28,11 @@ class ArtistViewController: UIViewController {
 // MARK: - CollectionView DataSource
 extension ArtistViewController: UICollectionViewDataSource {
   func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
+    return DataManager.sections.count
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return DataManager.items.count
+    return DataManager.sections[section].items.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

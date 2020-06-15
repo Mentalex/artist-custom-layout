@@ -9,5 +9,9 @@
 import Foundation
 
 struct DataManager {
-  static let items: [Int] = Array(0...50)
+  
+  static var sections: [Section] {
+    let songs = Section(items: Array(0...50))
+    return [songs]
+  }
 }
