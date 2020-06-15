@@ -21,7 +21,12 @@ class ArtistViewController: UIViewController {
   
   // MARK: - Private Methods
   private func setupCollectionView() {
-    collectionView.register(GridItemViewCell.self, forCellWithReuseIdentifier: "Cell")
+    collectionView.register(ItemViewCell.self, forCellWithReuseIdentifier: Element.cell.id)
+    collectionView.register(
+      UINib(nibName: "HeaderReusableView", bundle: nil),
+      forSupplementaryViewOfKind: Element.header.kind,
+      withReuseIdentifier: Element.header.id
+    )
   }
 }
 
@@ -36,10 +41,16 @@ extension ArtistViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(
-      withReuseIdentifier: "Cell", for: indexPath
-      ) as? GridItemViewCell
-    cell?.backgroundColor = .darkGray
-    return cell ?? UICollectionViewCell()
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Element.cell.id, for: indexPath)
+    cell.backgroundColor = .darkGray
+    return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    let header = collectionView.dequeueReusableSupplementaryView(
+      ofKind: kind, withReuseIdentifier: Element.header.id, for: indexPath
+    )
+    header.backgroundColor = .black
+    return header
   }
 }

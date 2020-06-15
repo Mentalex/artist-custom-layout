@@ -13,12 +13,13 @@
 		FA4225382496B49F00CC9ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4225362496B49F00CC9ED0 /* LaunchScreen.storyboard */; };
 		FA4225402496D13B00CC9ED0 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42253F2496D13B00CC9ED0 /* ArtistViewController.swift */; };
 		FA4AA4A32496D78000CB9962 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4A22496D78000CB9962 /* DataManager.swift */; };
-		FA4AA4A72496DF6B00CB9962 /* GridItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4A52496DF6B00CB9962 /* GridItemViewCell.swift */; };
-		FA4AA4A82496DF6B00CB9962 /* GridItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4AA4A62496DF6B00CB9962 /* GridItemViewCell.xib */; };
 		FA4AA4AC2496F02400CB9962 /* ArtistLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4AB2496F02400CB9962 /* ArtistLayout.swift */; };
 		FA4AA4BD2497E2A800CB9962 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4BC2497E2A800CB9962 /* Section.swift */; };
 		FA4AA4BF2497E2EC00CB9962 /* LayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4BE2497E2EC00CB9962 /* LayoutType.swift */; };
 		FAF92D952497E62800ABFF28 /* ArtistLayoutElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF92D942497E62800ABFF28 /* ArtistLayoutElement.swift */; };
+		FAF92D9A24980A3200ABFF28 /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF92D9824980A3200ABFF28 /* HeaderReusableView.swift */; };
+		FAF92D9B24980A3200ABFF28 /* HeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF92D9924980A3200ABFF28 /* HeaderReusableView.xib */; };
+		FAF92D9D2498145900ABFF28 /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF92D9C2498145900ABFF28 /* ItemViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +31,13 @@
 		FA4225392496B49F00CC9ED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA42253F2496D13B00CC9ED0 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		FA4AA4A22496D78000CB9962 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		FA4AA4A52496DF6B00CB9962 /* GridItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemViewCell.swift; sourceTree = "<group>"; };
-		FA4AA4A62496DF6B00CB9962 /* GridItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridItemViewCell.xib; sourceTree = "<group>"; };
 		FA4AA4AB2496F02400CB9962 /* ArtistLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistLayout.swift; sourceTree = "<group>"; };
 		FA4AA4BC2497E2A800CB9962 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		FA4AA4BE2497E2EC00CB9962 /* LayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutType.swift; sourceTree = "<group>"; };
 		FAF92D942497E62800ABFF28 /* ArtistLayoutElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistLayoutElement.swift; sourceTree = "<group>"; };
+		FAF92D9824980A3200ABFF28 /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
+		FAF92D9924980A3200ABFF28 /* HeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderReusableView.xib; sourceTree = "<group>"; };
+		FAF92D9C2498145900ABFF28 /* ItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				FA4AA4A42496DEBB00CB9962 /* Common */,
 				FA4225412496D16D00CC9ED0 /* Controllers */,
 				FA4AA4A02496D73F00CB9962 /* Data */,
+				FAF92D962498084F00ABFF28 /* Layouts */,
 				FA4AA4BB2497E27700CB9962 /* Models */,
 				FA4AA4BA2497E23300CB9962 /* Views */,
 			);
@@ -116,8 +119,7 @@
 		FA4AA4A92496EF7E00CB9962 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FA4AA4A52496DF6B00CB9962 /* GridItemViewCell.swift */,
-				FA4AA4A62496DF6B00CB9962 /* GridItemViewCell.xib */,
+				FAF92D9C2498145900ABFF28 /* ItemViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -134,7 +136,7 @@
 		FA4AA4BA2497E23300CB9962 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA4AA4AA2496EFBF00CB9962 /* ArtistLayout */,
+				FAF92D97249809CA00ABFF28 /* Headers */,
 				FA4AA4A92496EF7E00CB9962 /* Cells */,
 			);
 			path = Views;
@@ -147,6 +149,23 @@
 				FA4AA4BC2497E2A800CB9962 /* Section.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FAF92D962498084F00ABFF28 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				FA4AA4AA2496EFBF00CB9962 /* ArtistLayout */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		FAF92D97249809CA00ABFF28 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				FAF92D9824980A3200ABFF28 /* HeaderReusableView.swift */,
+				FAF92D9924980A3200ABFF28 /* HeaderReusableView.xib */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4225382496B49F00CC9ED0 /* LaunchScreen.storyboard in Resources */,
-				FA4AA4A82496DF6B00CB9962 /* GridItemViewCell.xib in Resources */,
+				FAF92D9B24980A3200ABFF28 /* HeaderReusableView.xib in Resources */,
 				FA4225352496B49F00CC9ED0 /* Assets.xcassets in Resources */,
 				FA4225332496B49900CC9ED0 /* Main.storyboard in Resources */,
 			);
@@ -221,11 +240,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF92D9D2498145900ABFF28 /* ItemViewCell.swift in Sources */,
 				FA4AA4BF2497E2EC00CB9962 /* LayoutType.swift in Sources */,
 				FA42252C2496B49900CC9ED0 /* AppDelegate.swift in Sources */,
-				FA4AA4A72496DF6B00CB9962 /* GridItemViewCell.swift in Sources */,
 				FAF92D952497E62800ABFF28 /* ArtistLayoutElement.swift in Sources */,
 				FA4AA4A32496D78000CB9962 /* DataManager.swift in Sources */,
+				FAF92D9A24980A3200ABFF28 /* HeaderReusableView.swift in Sources */,
 				FA4AA4BD2497E2A800CB9962 /* Section.swift in Sources */,
 				FA4225402496D13B00CC9ED0 /* ArtistViewController.swift in Sources */,
 				FA4AA4AC2496F02400CB9962 /* ArtistLayout.swift in Sources */,

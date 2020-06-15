@@ -13,4 +13,12 @@ enum ArtistLayoutElement: String {
   case cell
   case header
   case footer
+  
+  var id: String {
+    return self.rawValue
+  }
+  
+  var kind: String {
+    return "Kind\(self.rawValue.capitalized)"
+  }
 }

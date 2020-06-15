@@ -21,6 +21,7 @@ class ArtistLayout: UICollectionViewLayout {
   // MARK: - Public Properties
   var numberOfColumns: Int = 4
   var padding: CGFloat = 8
+  var headerHeight: CGFloat = 60
   
   // MARK: - Private Properties
   /// Cache of calculated Attributes
@@ -50,11 +51,18 @@ class ArtistLayout: UICollectionViewLayout {
   }
   
   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-    return cache[.cell]?.filter { $0.value.frame.intersects(rect) }.map { $0.value }
+    let cells = cache[.cell]?.filter { $0.value.frame.intersects(rect) }.map { $0.value } ?? []
+    let headers = cache[.header]?.filter { $0.value.frame.intersects(rect) }.map { $0.value } ?? []
+    return cells + headers
   }
   
   override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
     return cache[.cell]?[indexPath]
+  }
+  
+  override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    guard elementKind == Element.header.kind else { return nil }
+    return cache[.header]?[indexPath]
   }
   
   override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
@@ -74,16 +82,28 @@ extension ArtistLayout {
   
   private func prepareCache() {
     cache[.cell] = [IndexPath: LayoutAttributes]()
+    cache[.header] = [IndexPath: LayoutAttributes]()
   }
   
   private func gridLayout(in collectionView: UICollectionView) {
     // Values used to set Item Asset Frame
     let itemWidth = contentWidth / CGFloat(numberOfColumns)
     let xOffsets = Array(0..<numberOfColumns).map { CGFloat($0) * itemWidth }
-    var yOffsets: [CGFloat] = .init(repeating: 0, count: numberOfColumns)
     var column = 0
     
     for section in 0..<collectionView.numberOfSections {
+      // Setup Header Attributes
+      let sectionIndex = IndexPath(item: 0, section: section)
+      let headerAttributes = UICollectionViewLayoutAttributes(
+        forSupplementaryViewOfKind: Element.header.kind, with: sectionIndex
+      )
+      headerAttributes.frame = CGRect(x: 0, y: contentHeight, width: contentWidth, height: headerHeight)
+      contentHeight = headerAttributes.frame.maxY
+      cache[.header]?[sectionIndex] = headerAttributes
+      
+      // Setup Y Offsets
+      var yOffsets: [CGFloat] = .init(repeating: contentHeight, count: numberOfColumns)
+      
       for item in 0..<collectionView.numberOfItems(inSection: section) {
         let indexPath = IndexPath(item: item, section: section)
         
