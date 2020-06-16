@@ -22,7 +22,6 @@ class ArtistLayout: UICollectionViewLayout {
   weak var delegate: ArtistLayoutDelegate?
   var numberOfColumns: Int = 4
   var padding: CGFloat = 8
-  var headerHeight: CGFloat = 60
   
   // MARK: - Private Properties
   /// Cache of calculated Attributes
@@ -30,6 +29,9 @@ class ArtistLayout: UICollectionViewLayout {
   
   /// The CollectionView's variable content height
   private var contentHeight: CGFloat = .zero
+  
+  /// Default Height when height for cell or header its not defined.
+  private var defaultHeight: CGFloat = 60
   
   // MARK: - Computed Properties
   /// The CollectionView's variable content width
@@ -54,7 +56,7 @@ class ArtistLayout: UICollectionViewLayout {
       
       // Get Layout Type for Section
       // NOTE: If delegate or method is not implemented use list type by default
-      let layoutType: ArtistLayoutType = delegate?.layoutType(for: section) ?? .list
+      let layoutType: ArtistLayoutType = delegate?.layout(typeFor: section) ?? .list
       switch layoutType {
       case .list:
         listLayout(collectionView: collectionView, in: section)
@@ -105,7 +107,8 @@ extension ArtistLayout {
       forSupplementaryViewOfKind: Element.header.kind,
       with: IndexPath(item: 0, section: section)
     )
-    attributes.frame = CGRect(x: 0, y: contentHeight, width: contentWidth, height: headerHeight)
+    let height = delegate?.layout(headerHeightAt: section) ?? defaultHeight
+    attributes.frame = CGRect(x: 0, y: contentHeight, width: contentWidth, height: height)
     contentHeight = attributes.frame.maxY
     cache[.header]?[attributes.indexPath] = attributes
   }
@@ -115,7 +118,8 @@ extension ArtistLayout {
       let indexPath = IndexPath(item: item, section: section)
       
       // Initialize and set Frame
-      var frame = CGRect(x: 0, y: contentHeight, width: contentWidth, height: headerHeight)
+      let height = delegate?.layout(cellHeightAt: indexPath) ?? defaultHeight
+      var frame = CGRect(x: 0, y: contentHeight, width: contentWidth, height: height)
       frame = frame.insetBy(dx: padding, dy: padding)
       
       // Initialize, set and save Attributes

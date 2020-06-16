@@ -132,10 +132,10 @@
 			isa = PBXGroup;
 			children = (
 				FA4AA4AB2496F02400CB9962 /* ArtistLayout.swift */,
+				FAF92DA224982F9A00ABFF28 /* ArtistLayoutDelegate.swift */,
 				FAF92D942497E62800ABFF28 /* ArtistLayoutElement.swift */,
 				FAF92D9E24982CD100ABFF28 /* ArtistLayoutProtocol.swift */,
 				FAF92DA024982D3A00ABFF28 /* ArtistLayoutType.swift */,
-				FAF92DA224982F9A00ABFF28 /* ArtistLayoutDelegate.swift */,
 			);
 			path = ArtistLayout;
 			sourceTree = "<group>";

@@ -65,7 +65,15 @@ extension ArtistViewController: UICollectionViewDataSource {
 // MARK: - ArtistLayout Delegate
 extension ArtistViewController: ArtistLayoutDelegate {
   
-  func layoutType(for section: Int) -> ArtistLayoutType {
+  func layout(typeFor section: Int) -> ArtistLayoutType {
     return DataManager.sections[section].type
+  }
+  
+  func layout(headerHeightAt section: Int) -> CGFloat {
+   return 60
+  }
+  
+  func layout(cellHeightAt indexPath: IndexPath) -> CGFloat {
+    return indexPath.section == 0 ? 45 : 60
   }
 }
