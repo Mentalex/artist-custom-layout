@@ -13,6 +13,11 @@ class ArtistViewController: UIViewController {
   // MARK: - Outlets
   @IBOutlet weak var collectionView: UICollectionView!
   
+  // MARK: - Computed Properties
+  private var layout: ArtistLayout? {
+    return collectionView.collectionViewLayout as? ArtistLayout
+  }
+  
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,6 +26,7 @@ class ArtistViewController: UIViewController {
   
   // MARK: - Private Methods
   private func setupCollectionView() {
+    layout?.delegate = self
     collectionView.register(ItemViewCell.self, forCellWithReuseIdentifier: Element.cell.id)
     collectionView.register(
       UINib(nibName: "HeaderReusableView", bundle: nil),
@@ -32,6 +38,7 @@ class ArtistViewController: UIViewController {
 
 // MARK: - CollectionView DataSource
 extension ArtistViewController: UICollectionViewDataSource {
+  
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return DataManager.sections.count
   }
@@ -57,7 +64,8 @@ extension ArtistViewController: UICollectionViewDataSource {
 
 // MARK: - ArtistLayout Delegate
 extension ArtistViewController: ArtistLayoutDelegate {
-  func collection(_ collectionView: UICollectionView, layoutType type: ArtistLayoutType, for section: Int) -> ArtistLayoutType {
+  
+  func layoutType(for section: Int) -> ArtistLayoutType {
     return DataManager.sections[section].type
   }
 }

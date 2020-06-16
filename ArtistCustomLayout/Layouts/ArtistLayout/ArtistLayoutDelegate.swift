@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol ArtistLayoutDelegate {
-  func collection(_ collectionView: UICollectionView, layoutType type: ArtistLayoutType, for section: Int) -> ArtistLayoutType
+protocol ArtistLayoutDelegate: class {
+  func layoutType(for section: Int) -> ArtistLayoutType
 }
 
 // MARK: - Defaul Implementation
 extension ArtistLayoutDelegate {
-  func collection(_ collectionView: UICollectionView, layoutType type: ArtistLayoutType, for section: Int) -> ArtistLayoutType {
+  func layoutType(for section: Int) -> ArtistLayoutType {
     return .list
   }
 }
