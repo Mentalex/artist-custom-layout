@@ -94,7 +94,8 @@ class ArtistLayout: UICollectionViewLayout {
   }
   
   override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-    return (self.collectionView?.bounds ?? newBounds) == newBounds
+    guard let oldWidth = collectionView?.bounds.width else { return false }
+    return oldWidth != newBounds.width
   }
   
   override func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext) {
