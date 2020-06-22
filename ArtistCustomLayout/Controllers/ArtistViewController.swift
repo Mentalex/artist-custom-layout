@@ -33,6 +33,11 @@ class ArtistViewController: UIViewController {
       forSupplementaryViewOfKind: Element.header.kind,
       withReuseIdentifier: Element.header.id
     )
+    collectionView.register(
+      UINib(nibName: "FooterReusableView", bundle: nil),
+      forSupplementaryViewOfKind: Element.footer.kind,
+      withReuseIdentifier: Element.footer.id
+    )
   }
 }
 
@@ -54,11 +59,12 @@ extension ArtistViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    let header = collectionView.dequeueReusableSupplementaryView(
-      ofKind: kind, withReuseIdentifier: Element.header.id, for: indexPath
+    let identifier = (kind == Element.header.kind) ? Element.header.id : Element.footer.id
+    let view = collectionView.dequeueReusableSupplementaryView(
+      ofKind: kind, withReuseIdentifier: identifier, for: indexPath
     )
-    header.backgroundColor = .black
-    return header
+    view.backgroundColor = (kind == Element.header.kind) ? .black : .red
+    return view
   }
 }
 
@@ -71,6 +77,10 @@ extension ArtistViewController: ArtistLayoutDelegate {
   
   func layout(headerHeightAt section: Int) -> CGFloat {
    return 60
+  }
+  
+  func layout(footerHeigtAt section: Int) -> CGFloat {
+    return 40
   }
   
   func layout(cellHeightAt indexPath: IndexPath) -> CGFloat {

@@ -15,6 +15,8 @@
 		FA4AA4A32496D78000CB9962 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4A22496D78000CB9962 /* DataManager.swift */; };
 		FA4AA4AC2496F02400CB9962 /* ArtistLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4AB2496F02400CB9962 /* ArtistLayout.swift */; };
 		FA4AA4BD2497E2A800CB9962 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AA4BC2497E2A800CB9962 /* Section.swift */; };
+		FAED7FD424A0FE48003FFBFD /* FooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAED7FD224A0FE48003FFBFD /* FooterReusableView.swift */; };
+		FAED7FD524A0FE48003FFBFD /* FooterReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAED7FD324A0FE48003FFBFD /* FooterReusableView.xib */; };
 		FAF92D952497E62800ABFF28 /* ArtistLayoutElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF92D942497E62800ABFF28 /* ArtistLayoutElement.swift */; };
 		FAF92D9A24980A3200ABFF28 /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF92D9824980A3200ABFF28 /* HeaderReusableView.swift */; };
 		FAF92D9B24980A3200ABFF28 /* HeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF92D9924980A3200ABFF28 /* HeaderReusableView.xib */; };
@@ -35,6 +37,8 @@
 		FA4AA4A22496D78000CB9962 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		FA4AA4AB2496F02400CB9962 /* ArtistLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistLayout.swift; sourceTree = "<group>"; };
 		FA4AA4BC2497E2A800CB9962 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		FAED7FD224A0FE48003FFBFD /* FooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterReusableView.swift; sourceTree = "<group>"; };
+		FAED7FD324A0FE48003FFBFD /* FooterReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterReusableView.xib; sourceTree = "<group>"; };
 		FAF92D942497E62800ABFF28 /* ArtistLayoutElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistLayoutElement.swift; sourceTree = "<group>"; };
 		FAF92D9824980A3200ABFF28 /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
 		FAF92D9924980A3200ABFF28 /* HeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderReusableView.xib; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		FA4AA4BA2497E23300CB9962 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAED7FD124A0FDFA003FFBFD /* Footers */,
 				FAF92D97249809CA00ABFF28 /* Headers */,
 				FA4AA4A92496EF7E00CB9962 /* Cells */,
 			);
@@ -155,6 +160,15 @@
 				FA4AA4BC2497E2A800CB9962 /* Section.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FAED7FD124A0FDFA003FFBFD /* Footers */ = {
+			isa = PBXGroup;
+			children = (
+				FAED7FD224A0FE48003FFBFD /* FooterReusableView.swift */,
+				FAED7FD324A0FE48003FFBFD /* FooterReusableView.xib */,
+			);
+			path = Footers;
 			sourceTree = "<group>";
 		};
 		FAF92D962498084F00ABFF28 /* Layouts */ = {
@@ -233,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4225382496B49F00CC9ED0 /* LaunchScreen.storyboard in Resources */,
+				FAED7FD524A0FE48003FFBFD /* FooterReusableView.xib in Resources */,
 				FAF92D9B24980A3200ABFF28 /* HeaderReusableView.xib in Resources */,
 				FA4225352496B49F00CC9ED0 /* Assets.xcassets in Resources */,
 				FA4225332496B49900CC9ED0 /* Main.storyboard in Resources */,
@@ -254,6 +269,7 @@
 				FAF92DA124982D3A00ABFF28 /* ArtistLayoutType.swift in Sources */,
 				FAF92D9A24980A3200ABFF28 /* HeaderReusableView.swift in Sources */,
 				FA4AA4BD2497E2A800CB9962 /* Section.swift in Sources */,
+				FAED7FD424A0FE48003FFBFD /* FooterReusableView.swift in Sources */,
 				FAF92DA324982F9A00ABFF28 /* ArtistLayoutDelegate.swift in Sources */,
 				FA4225402496D13B00CC9ED0 /* ArtistViewController.swift in Sources */,
 				FA4AA4AC2496F02400CB9962 /* ArtistLayout.swift in Sources */,

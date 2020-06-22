@@ -11,6 +11,7 @@ import UIKit
 protocol ArtistLayoutDelegate: class {
   func layout(typeFor section: Int) -> ArtistLayoutType
   func layout(headerHeightAt section: Int) -> CGFloat
+  func layout(footerHeigtAt section: Int) -> CGFloat
   func layout(cellHeightAt indexPath: IndexPath) -> CGFloat
 }
 
@@ -22,6 +23,10 @@ extension ArtistLayoutDelegate {
   
   func layout(headerHeightAt section: Int) -> CGFloat {
     return 60
+  }
+  
+  func layout(footerHeigtAt section: Int) -> CGFloat {
+    return 0
   }
   
   func layout(cellHeightAt indexPath: IndexPath) -> CGFloat {

@@ -65,13 +65,17 @@ class ArtistLayout: UICollectionViewLayout {
       default:
         break
       }
+      
+      // Setup Footer Attributes
+      prepareFooter(forSection: section)
     }
   }
   
   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
     let cells = cache[.cell]?.filter { $0.value.frame.intersects(rect) }.map { $0.value } ?? []
     let headers = cache[.header]?.filter { $0.value.frame.intersects(rect) }.map { $0.value } ?? []
-    return cells + headers
+    let footers = cache[.footer]?.filter { $0.value.frame.intersects(rect) }.map{ $0.value } ?? []
+    return cells + headers + footers
   }
   
   override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
@@ -79,8 +83,14 @@ class ArtistLayout: UICollectionViewLayout {
   }
   
   override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-    guard elementKind == Element.header.kind else { return nil }
-    return cache[.header]?[indexPath]
+    switch elementKind {
+    case Element.header.kind:
+      return cache[.header]?[indexPath]
+    case Element.footer.kind:
+      return cache[.footer]?[indexPath]
+    default:
+      return nil
+    }
   }
   
   override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
@@ -100,17 +110,29 @@ extension ArtistLayout {
   private func prepareCache() {
     cache[.cell] = [IndexPath: LayoutAttributes]()
     cache[.header] = [IndexPath: LayoutAttributes]()
+    cache[.footer] = [IndexPath: LayoutAttributes]()
   }
   
   private func prepareHeader(forSection section: Int) {
+    guard let height = delegate?.layout(headerHeightAt: section), height > 0 else { return }
     let attributes = UICollectionViewLayoutAttributes(
       forSupplementaryViewOfKind: Element.header.kind,
       with: IndexPath(item: 0, section: section)
     )
-    let height = delegate?.layout(headerHeightAt: section) ?? defaultHeight
     attributes.frame = CGRect(x: 0, y: contentHeight, width: contentWidth, height: height)
     contentHeight = attributes.frame.maxY
     cache[.header]?[attributes.indexPath] = attributes
+  }
+  
+  private func prepareFooter(forSection section: Int) {
+    guard let height = delegate?.layout(footerHeigtAt: section), height > 0 else { return }
+    let attributes = UICollectionViewLayoutAttributes(
+      forSupplementaryViewOfKind: Element.footer.kind,
+      with: IndexPath(item: 0, section: section)
+    )
+    attributes.frame = CGRect(x: 0, y: contentHeight, width: contentWidth, height: height)
+    contentHeight = attributes.frame.maxY
+    cache[.footer]?[attributes.indexPath] = attributes
   }
   
   private func listLayout(collectionView: UICollectionView, in section: Int) {
