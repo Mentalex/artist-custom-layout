@@ -173,9 +173,17 @@ extension ArtistLayout {
     // Update Values
     listOffsetY = currentColumnList == 0 ? listOffsetY : contentHeight
     currentColumnList = currentColumnList == 0 ? 1 : 0
+    if UIDevice.current.userInterfaceIdiom == .phone {
+      listOffsetY = contentHeight
+      currentColumnList = 0
+    }
   }
   
   private func gridLayout(collectionView: UICollectionView, in section: Int) {
+    // Setup Header Attributes
+    var origin = CGPoint(x: 0, y: contentHeight)
+    _ = prepareSupplementary(element: .header, section: section, origin: origin, width: contentWidth)
+    
     // Values used to set Item Asset Frame
     let itemWidth = contentWidth / CGFloat(numberOfColumns)
     let xOffsets = Array(0..<numberOfColumns).map { CGFloat($0) * itemWidth }
@@ -198,12 +206,16 @@ extension ArtistLayout {
       cache[.cell]?[indexPath] = attributes
       
       // Update Content Height
-      contentHeight = attributes.frame.maxY
+      contentHeight = max(contentHeight, attributes.frame.maxY)
       
       // Update Offsets and column for next item
       yOffsets[column] = yOffsets[column] + itemWidth
       column = column < numberOfColumns - 1 ? column + 1 : 0
     }
+    
+    // Setup Footer Attributes
+    origin.y = contentHeight
+    _ = prepareSupplementary(element: .footer, section: section, origin:  origin, width: contentWidth)
   }
 }
 
