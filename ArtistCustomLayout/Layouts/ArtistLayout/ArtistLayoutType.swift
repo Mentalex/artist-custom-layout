@@ -11,5 +11,4 @@ import Foundation
 enum ArtistLayoutType {
   case list
   case grid
-  case carousel
 }
